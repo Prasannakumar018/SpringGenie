@@ -1,0 +1,75 @@
+<!-- codegeneratorcomponent.component.html -->
+<div class="codegen-container">
+  <!-- LEFT SIDE: FORM -->
+  <div class="form-section">
+    <h2>Code Generator 🛠️</h2>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Entity Name</mat-label>
+      <input
+        matInput
+        [(ngModel)]="entityName"
+        placeholder="e.g. Book"
+        name="entityName"
+      />
+    </mat-form-field>
+
+    <h3>Fields</h3>
+    <div class="fields-container">
+      <div *ngFor="let field of fields; let i = index" class="field-row">
+        <mat-form-field appearance="fill">
+          <mat-label>Field Name</mat-label>
+          <input
+            matInput
+            [(ngModel)]="field.name"
+            placeholder="Field name (e.g. title)"
+            name="fieldName-{{ i }}"
+          />
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Field Type</mat-label>
+          <mat-select [(ngModel)]="field.type" name="fieldType-{{ i }}">
+            <mat-option value="String">String</mat-option>
+            <mat-option value="int">int</mat-option>
+            <mat-option value="double">double</mat-option>
+            <mat-option value="boolean">boolean</mat-option>
+            <mat-option value="LocalDate">LocalDate</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <button
+          mat-icon-button
+          (click)="removeField(i)"
+          *ngIf="fields.length > 1"
+          type="button"
+        >
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+    </div>
+
+    <button mat-raised-button color="accent" (click)="addField()">➕ Add Field</button>
+    <br /><br />
+    <button mat-raised-button color="primary" (click)="submitForm()">🚀 Generate Code</button>
+  </div>
+
+  <!-- RIGHT SIDE: GENERATED CODE -->
+  <div class="code-section">
+    <h2>Generated Code 🧠</h2>
+    <mat-tab-group>
+      <mat-tab label="Model">
+        <pre><code>{{ generatedCode.model }}</code></pre>
+      </mat-tab>
+      <mat-tab label="Repository">
+        <pre><code>{{ generatedCode.repository }}</code></pre>
+      </mat-tab>
+      <mat-tab label="Service">
+        <pre><code>{{ generatedCode.service }}</code></pre>
+      </mat-tab>
+      <mat-tab label="Controller">
+        <pre><code>{{ generatedCode.controller }}</code></pre>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+</div>

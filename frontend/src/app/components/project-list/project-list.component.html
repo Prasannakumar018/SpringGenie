@@ -1,0 +1,51 @@
+<div class="project-form">
+    <h2>{{ isEditMode ? 'Edit' : 'Add' }} Project</h2>
+    <form #projectFormRef="ngForm" (ngSubmit)="saveProject()" novalidate>
+      <mat-form-field appearance="fill">
+        <mat-label >Project Name</mat-label>
+        <input matInput 
+               type="text" 
+               name="name" 
+               [(ngModel)]="projectForm.name" 
+               placeholder="Project Name" 
+               required />
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Description</mat-label>
+        <input matInput 
+               type="text" 
+               name="description" 
+               [(ngModel)]="projectForm.description" 
+               placeholder="Description" 
+               required />
+      </mat-form-field>
+  
+  
+    <app-code-generator></app-code-generator>
+  
+
+  <button mat-raised-button 
+              color="primary" 
+              type="submit" 
+              [disabled]="projectFormRef.invalid">
+        {{ isEditMode ? 'Update' : 'Create' }}
+      </button>
+
+      <div class="project-list">
+        <h3>Project List</h3>
+        <ul>
+          <li *ngFor="let project of projects">
+            <strong>{{ project.name }}</strong> - {{ project.description }}
+            <button mat-icon-button (click)="editProject(project)">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button (click)="deleteProject(project.id!)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </li>
+        </ul>
+      </div>
+</form>
+</div>
+  
