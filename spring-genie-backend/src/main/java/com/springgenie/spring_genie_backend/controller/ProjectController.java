@@ -19,6 +19,8 @@ import com.springgenie.spring_genie_backend.service.ProjectService;
 @RestController
 @RequestMapping("/api/projects")
 @CrossOrigin(origins = "http://localhost:4200")
+//@CrossOrigin(origins = "*")
+
 public class ProjectController {
 	@Autowired
 	private ProjectService service;

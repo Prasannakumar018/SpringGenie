@@ -1,0 +1,48 @@
+# --- Java / Spring Boot ---
+/target/
+*.class
+*.jar
+*.war
+*.log
+*.db
+*.h2.db
+
+# Maven
+.mvn/
+!/.mvn/wrapper/maven-wrapper.jar
+
+# Gradle
+.gradle/
+build/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+
+# Eclipse
+.project
+.classpath
+.settings/
+
+# VSCode
+.vscode/
+
+# --- Node / Angular ---
+**/node_modules/
+**/dist/
+**/out-tsc/
+**/.angular/
+**/angular.json
+**/package-lock.json
+**/yarn.lock
+**/.npm/
+
+# Angular environments (if you have secrets)
+**/src/environments/environment.prod.ts
+**/src/environments/environment.ts
+
+# --- OS/Editor Files ---
+.DS_Store
+Thumbs.db
+*.swp

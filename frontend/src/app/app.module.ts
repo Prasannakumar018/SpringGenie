@@ -8,6 +8,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { ProjectListComponent } from './components/project-list/project-list.component';
 import { CodeGeneratorComponent } from './components/codegeneratorcomponent/codegeneratorcomponent.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 // import { AppComponent } from './app.component';
@@ -22,7 +23,8 @@ import { CodeGeneratorComponent } from './components/codegeneratorcomponent/code
     MatCardModule,
     FormsModule,
     ProjectListComponent,   // Add this to make the component available
-    CodeGeneratorComponent
+    CodeGeneratorComponent,
+    HttpClientModule
   ],
   providers: [],
   // Removed bootstrap array as AppComponent is standalone
